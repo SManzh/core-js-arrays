@@ -46,6 +46,17 @@ function getIntervalArray(start, end) {
  */
 function sumArrays(/* arr1, arr2 */) {
   throw new Error('Not implemented');
+  // const arr3 = [];
+  // let arr1a = arr1;
+  // let arr2a = arr2;
+  // if (arr1.length >= arr2.length) {
+  //   arr2a = arr2a.fill(0, arr2.length, arr1.length);
+  // }
+  // arr1a = arr1a.fill(0, arr1.length, arr2.length);
+  // for (let i = 0; i < arr1a.length; i += 1) {
+  //   arr3[i] = arr1a[i] + arr2a[i];
+  // }
+  // return arr3;
 }
 
 /**
@@ -103,8 +114,17 @@ function findAllOccurrences(arr, item) {
  *    removeFalsyValues([ 1, 2, 3, 4, 5, 'false' ]) => [ 1, 2, 3, 4, 5, 'false' ]
  *    removeFalsyValues([ false, 0, NaN, '', undefined ]) => [ ]
  */
-function removeFalsyValues(/* arr */) {
-  throw new Error('Not implemented');
+function removeFalsyValues(arr) {
+  const result = arr.filter(
+    (el) =>
+      el !== false &&
+      el !== 0 &&
+      !Number.isNaN(el) &&
+      el !== undefined &&
+      el !== '' &&
+      el !== null
+  );
+  return result;
 }
 
 /**
@@ -117,8 +137,9 @@ function removeFalsyValues(/* arr */) {
  *    getStringsLength([ '', 'a', 'bc', 'def', 'ghij' ]) => [ 0, 1, 2, 3, 4 ]
  *    getStringsLength([ 'angular', 'react', 'ember' ]) => [ 7, 5, 5 ]
  */
-function getStringsLength(/* arr */) {
-  throw new Error('Not implemented');
+function getStringsLength(arr) {
+  const result = arr.map((el) => el.length);
+  return result;
 }
 
 /**
@@ -135,8 +156,14 @@ function getStringsLength(/* arr */) {
  *   getAverage([ 1, 10, 100, 1000 ])  => 277,75
  *   getAverage([ 2, 3, 3 ])  => 2,67
  */
-function getAverage(/* arr */) {
-  throw new Error('Not implemented');
+function getAverage(arr) {
+  if (!Array.isArray(arr) || arr.length === 0) {
+    return 0;
+  }
+  const acc = arr.reduce((sum, elem) => {
+    return sum + elem;
+  }, 0);
+  return +(acc / arr.length).toFixed(2);
 }
 
 /**
